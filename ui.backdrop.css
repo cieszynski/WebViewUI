@@ -1,0 +1,102 @@
+/* backdrop.css */
+
+/*
+<body>
+  <main class="backdrop" data-title="TITLE">
+    <section id="c" class="backdrop">default section</section>
+    <section id="b" class="backdrop">other section</section>
+    <section id="a" class="backdrop">other section</section>
+    <nav class="backdrop">
+      <h1>HEADLINE</h1>
+      <label class="chips">
+        <a href="#a">default link</a>
+      </label>
+      <label class="chips">
+        <a href="#b">other link</a>
+      </label>
+      <label class="chips">
+        <a href="#c">other link</a>
+      </label>
+    </nav>
+  </main>
+</body>
+*/
+
+@import "ui.chips.css";
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+main.backdrop {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  display: grid;
+  grid-template-rows: 100vh 100vh;
+  height: 100%;
+  width: 100%;
+  max-width: 1024px;
+  margin: auto;
+  background-color: inherit;
+  perspective: 1px;
+}
+
+main.backdrop>* {
+  scroll-snap-align: start end;
+  scroll-snap-stop: always;
+  background-color: inherit;
+}
+
+section.backdrop {
+  background-color: inherit;
+  position: relative;
+  visibility: hidden;
+  grid-row-start: 2;
+  grid-column-start: 1;
+  padding: 52px 16px 16px 16px;
+  z-index: 1;
+}
+
+section.backdrop:last-of-type, section.backdrop:target {
+  visibility: visible;
+}
+
+section.backdrop:target~section.backdrop {
+  visibility: hidden;
+}
+
+section.backdrop#a:target~nav.backdrop label.chips a[href="#a"], section.backdrop#b:target~nav.backdrop label.chips a[href="#b"], section.backdrop#c:target~nav.backdrop label.chips a[href="#c"] {
+  background-color: rgba(100%, 100%, 100%, 12%);
+}
+
+nav.backdrop {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: -16px; right: 16px; bottom: 52px; left: 16px;
+  transform: translateZ(-0.5px) scale(1.5);
+}
+
+main.backdrop::after {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  left: 0;
+  width: 100vw;
+  height: 72px;
+  bottom: -36px;
+  text-align: center;
+  font: inherit;
+  font-size: 76px;
+  line-height: 76px;
+  color: var(--primary-color);
+  background-color: var(--secondary-bg-color);
+  box-shadow: 0 -5px 5px rgba(0, 0, 0, .2);
+  content: attr(data-title);
+  z-index: 1;
+}

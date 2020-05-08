@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <title>AIRMAP</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link href="ui.chips.css" type="text/css" rel="stylesheet" />
+  <link href="ui.settings.css" type="text/css" rel="stylesheet" />
+  <link href="ui.backdrop.css" type="text/css" rel="stylesheet" />
+  <style>
+    @font-face {
+      font-family: "Work Sans";
+      src: url("font/WorkSans-Regular.ttf") format("truetype");
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+
+    :root {
+      --primary-color: #fefefe;
+      --secondary-color: #8be0e4;
+      --primary-bg-color: #333f48;
+      --primary-bg: #3c515a;
+      --primary-bg-bright: #51767c;
+      --secondary-bg-color: #283239;
+    }
+
+    label.chips {
+      color: white;
+      border-color: white;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    body {
+      color: var(--primary-color);
+      background-color: var(--primary-bg-color);
+      font-family: "Work Sans";
+      font-size: medium;
+      transition: font-size .3s;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="backdrop" data-title="MATiK">
+    <section id="c" class="backdrop">
+      <h1>Einstellungen</h1>
+      <label class="settings">
+        <input type="checkbox" name="x" onchange="document.body.style.fontSize=(this.checked)?'larger':'medium'" />
+        <span>Große Schrift<br>Kann in bestimmten Fällen nicht oder auch doch nicht eingestellt werden</span>
+      </label>
+      <label class="settings">
+        <input type="checkbox" name="x" />
+        <span>Text</span>
+      </label>
+    </section>
+    <section id="b" class="backdrop">b Aufgaben</section>
+    <section id="a" class="backdrop">a Beschreibung</section>
+    <nav class="backdrop">
+      <h1>HALLO</h1>
+      <label class="chips">
+        <a href="#a">Beschreibung</a>
+      </label>
+      <label class="chips">
+        <a href="#b">Aufgaben</a>
+      </label>
+      <label class="chips">
+        <a href="#c">Über diese App</a>
+      </label>
+    </nav>
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+/* ui.chips.css */
+
+label.chips {
+  display: inline-block;
+  border-color: red;
+  margin: .3em;
+}
+
+label.chips input {
+  display: none;
+}
+
+label.chips>a, label.chips>input~span {
+  display: inline-block;
+  font-size: 1em;
+  line-height: 2em;
+  border: 1px solid transparent;
+  border-color: inherit;
+  border-radius: 1em;
+  text-decoration: inherit;
+  color: inherit;
+  padding: 0 1em;
+  margin: 1px;
+}
+
+label.chips input:checked~span {
+  background-color: rgba(100%, 100%, 100%, 12%);
+}
+
+label.filter input~span::before {
+  display: inline-block;
+  transition: width .3s, opacity .3s .3s;
+  content: "\A";
+  opacity: 0;
+  width: 0;
+}
+
+label.filter input:checked~span::before {
+  content: "\2713";
+  opacity: 1;
+  width: 1.5em;
+}
+
+label.action input~span::before {
+  display: inline-block;
+  content: "\25B6";
+  width: 1.5em;
+}

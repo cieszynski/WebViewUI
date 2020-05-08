@@ -1,0 +1,54 @@
+/* ui.settings.css */
+
+label.settings {
+  position: relative;
+  display: inline-flex;
+  align-items: stretch;
+  justify-content: space-between;
+  margin: .5em 0;
+  width: 100%;
+}
+
+label.settings input {
+  display: none;
+}
+
+label.settings>input~span {
+  margin-right: 2.5em;
+  white-space: pre-line;
+  color: inherit;
+}
+
+label.settings::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  content: "\A";
+  width: 2em;
+  height: 1.1em;
+  background-color: #ddd;
+  border: 2px solid #ff9900;
+  border-radius: 1em;
+  display: inline-block;
+}
+
+label.settings>input~span::after {
+  position: absolute;
+  display: inline-block;
+  will-change: right;
+  transition: right .3s;
+  top: 0;
+  right: 1em;
+  content: "\A";
+  width: 1.1em;
+  height: 1.1em;
+  border: 2px solid #ff9900;
+  background-color: #fff;
+  border-radius: 1em;
+  z-index: 100;
+}
+
+label.settings>input:checked~span::after {
+  background-color: #333;
+  right: 0;
+}
