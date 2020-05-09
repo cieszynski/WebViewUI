@@ -38,16 +38,55 @@ main.backdrop {
   grid-template-rows: 100vh 100vh;
   height: 100%;
   width: 100%;
-  max-width: 1024px;
   margin: auto;
   background-color: inherit;
-  perspective: 1px;
+  /* perspective: 1px; */
 }
 
-main.backdrop>* {
+main.backdrop>nav,
+main.backdrop>section {
   scroll-snap-align: start end;
   scroll-snap-stop: always;
   background-color: inherit;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+header.backdrop
+/* main.backdrop::after */ {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  left: 0;
+  width: 100vw;
+  height: 72px;
+  bottom: -36px;
+  text-align: center;
+  font: inherit;
+  font-size: 76px;
+  line-height: 76px;
+  color: var(--primary-color);
+  background-color: var(--secondary-bg-color);
+  box-shadow: 0 -5px 5px rgba(0, 0, 0, .2);
+  content: attr(data-title);
+  z-index: 10;
+}
+
+@media only screen and (min-width: 1024px) {
+  main.backdrop {
+    overflow-y: hidden;
+    overflow-x: scroll;
+    grid-template-rows: min-content min-content max-content;
+  }
+  main.backdrop>nav,
+  main.backdrop>section,
+  header.backdrop {
+    position: static;
+  }
+
+  main.backdrop>section {
+    grid-row: 3;
+  }
 }
 
 section.backdrop {
@@ -78,25 +117,37 @@ nav.backdrop {
   flex-direction: column;
   justify-content: center;
   position: absolute;
-  top: -16px; right: 16px; bottom: 52px; left: 16px;
-  transform: translateZ(-0.5px) scale(1.5);
+  top: -16px;
+  right: 16px;
+  bottom: 52px;
+  left: 16px;
+  /*   transform: translateZ(-0.5px) scale(1.5);
+  height: 100%; */
 }
 
-main.backdrop::after {
-  position: absolute;
-  padding: 0;
-  margin: 0;
-  left: 0;
-  width: 100vw;
-  height: 72px;
-  bottom: -36px;
-  text-align: center;
-  font: inherit;
-  font-size: 76px;
-  line-height: 76px;
-  color: var(--primary-color);
-  background-color: var(--secondary-bg-color);
-  box-shadow: 0 -5px 5px rgba(0, 0, 0, .2);
-  content: attr(data-title);
-  z-index: 1;
+@media only screen and (min-width: 1024px) {
+  nav.backdrop {
+    display: inline-block;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  main.backdrop {
+    overflow-y: hidden;
+    overflow-x: scroll;
+    grid-template-rows: min-content min-content max-content;
+  }
+  main.backdrop>nav,
+  main.backdrop>section,
+  header.backdrop {
+    position: static;
+  }
+
+  main.backdrop>section {
+    grid-row: 3;
+  }
+
+  section.backdrop { 
+    padding: 16px;
+  }
 }
