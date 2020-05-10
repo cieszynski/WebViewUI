@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <title>TEST</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        div {
+            visibility: collapse;
+            grid-column: 1 / -1;
+            grid-row: 2;
+            height: 200px;
+            border: 1px solid black;
+        }
+
+        div a {
+            grid-row: 1;
+            grid-column: 2;
+            visibility: visible;
+            z-index: 100;
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border: 1px solid green;
+        }
+
+        div:last-of-type,
+        div:target {
+            visibility: visible;
+        }
+
+        div:target~div {
+            visibility: hidden;
+        }
+
+        /*         div::before {
+            visibility: visible;
+            content: attr(id);
+            color: red;
+        } */
+
+        main {
+            display: grid;
+            grid-template-rows: min-content max-content;
+            grid-template-columns: 100px 100px 100px;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div id="a">a <a href="#a">A</a></div>
+        <div id="s">s<a href="#s">S</a></div>
+        <div id="d">d<a href="#d">D</a></div>
+    </main>
+</body>
+
+</html>

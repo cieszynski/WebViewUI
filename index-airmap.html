@@ -5,10 +5,12 @@
   <title>AIRMAP</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link href="ui.chips.css" type="text/css" rel="stylesheet" />
+  <link href="base.css" type="text/css" rel="stylesheet" />
+  <link href="backdrop.css" type="text/css" rel="stylesheet" />
+  <!--   <link href="ui.chips.css" type="text/css" rel="stylesheet" />
   <link href="ui.settings.css" type="text/css" rel="stylesheet" />
-  <link href="ui.backdrop.css" type="text/css" rel="stylesheet" />
-  <style>
+  <link href="ui.backdrop.css" type="text/css" rel="stylesheet" /> -->
+  <!--   <style type="test">
     @font-face {
       font-family: "Roboto";
       src: url("font/Roboto-Regular.ttf") format("truetype");
@@ -55,38 +57,62 @@
       font-size: medium;
       transition: font-size .3s;
     }
+  </style> -->
+
+  <style>
+    body {
+      background-color: #ddd;
+    }
+
+    header.backdrop {
+      background-color: #999;
+    }
   </style>
 </head>
 
 <body>
-  <main class="backdrop" data-title="MATiK">
+  <main class="backdrop">
     <header class="backdrop">
-      header
+      <h1>header</h1>
     </header>
+    <!-- reverse order matters -->
     <section id="c" class="backdrop">
-      <h1>Einstellungen</h1>
-      <label class="settings">
-        <input type="checkbox" name="x" onchange="document.body.style.fontSize=(this.checked)?'larger':'medium'" />
-        <span>Große Schrift<br>Kann in bestimmten Fällen nicht oder auch doch nicht eingestellt werden</span>
-      </label>
-      <label class="settings">
-        <input type="checkbox" name="x" />
-        <span>Text</span>
-      </label>
+      <div>
+        <h1>Einstellungen</h1>
+        <label class="settings">
+          <input type="checkbox" name="x" onchange="document.body.style.fontSize=(this.checked)?'larger':'medium'" />
+          <span>Große Schrift<br>Kann in bestimmten Fällen nicht oder auch doch nicht eingestellt werden</span>
+        </label>
+        <label class="settings">
+          <input type="checkbox" name="x" />
+          <span>Text</span>
+        </label>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid neque corrupti ut? Suscipit voluptates
+          cupiditate aliquid eligendi eius unde vero? Repudiandae asperiores itaque omnis atque harum minima impedit
+          natus fuga.</p>
+      </div>
     </section>
-    <section id="b" class="backdrop">b Aufgaben</section>
-    <section id="a" class="backdrop">a Beschreibung</section>
+    <section id="b" class="backdrop">
+      <div>b Aufgaben</div>
+    </section>
+    <!-- last is visible on start -->
+    <section id="a" class="backdrop">
+      <div>a Beschreibung</div>
+    </section>
     <nav class="backdrop">
-      <h1 class="lt1024">HALLO</h1>
-      <label class="chips">
-        <a href="#a">Beschreibung</a>
-      </label>
-      <label class="chips">
-        <a href="#b">Aufgaben</a>
-      </label>
-      <label class="chips">
-        <a href="#c">Über diese App</a>
-      </label>
+      <ul class="backdrop">
+        <!-- reverse order matters -->
+        <li class="backdrop">
+          <a href="#c">Über diese App</a>
+        </li>
+        <li class="backdrop">
+          <a href="#b">Aufgaben</a>
+        </li>
+        <!-- last selected visible on start -->
+        <li class="backdrop">
+          <a href="#a">Beschreibung</a>
+        </li>
+      </ul>
     </nav>
   </main>
 </body>

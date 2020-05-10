@@ -1,0 +1,126 @@
+/* backdrop.css */
+
+ul.backdrop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+    height: 100%;
+}
+
+li.backdrop {
+    display: inline-block;
+    margin: 8px;
+}
+
+main.backdrop {
+    position: relative;
+    display: grid;
+    grid-template-rows: min-content min-content max-content;
+    grid-template-columns: 1fr;
+    height: 100%;
+}
+
+header.backdrop {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+section.backdrop {
+    visibility: hidden;
+    grid-row: -1;
+    grid-column: 1;
+    height: 100%;
+}
+
+section.backdrop:last-of-type, section.backdrop:target {
+    visibility: visible;
+}
+
+section.backdrop:target~section.backdrop {
+    visibility: hidden;
+}
+
+nav.backdrop {
+    grid-column: 1;
+    grid-row: 2;
+    height: 100%;
+}
+
+nav.backdrop>*, header.backdrop>*, section.backdrop>* {
+    width: 100%;
+    max-width: 1024px;
+    margin: auto;
+}
+
+section:nth-of-type(3):target~* li:nth-of-type(3), section:nth-of-type(2):target~* li:nth-of-type(2), section:nth-of-type(1):target~* li:nth-of-type(1) {
+    background-color: rgba(0, 0, 0, .5);
+}
+
+@media only screen and (max-width: 800px) {
+    body {}
+    main.backdrop {
+        display: grid;
+        grid-template-rows: 100vh 100vh;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
+        scroll-behavior: smooth;
+        background-color: inherit;
+        transform-style: preserve-3d;
+        perspective: 1px;
+        perspective-origin: center;
+    }
+    header.backdrop {
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        left: 0;
+        right: 0;
+        height: 72px;
+        bottom: -36px;
+        font-size: 72px;
+        line-height: 72px;
+        box-shadow: 0 -5px 5px rgba(0, 0, 0, .2);
+        background-color: inherit;
+        z-index: 10;
+    }
+    nav.backdrop, section.backdrop {
+        padding: 16px 16px 16px 16px;
+        scroll-snap-align: start end;
+        scroll-snap-stop: always;
+        background-color: inherit;
+    }
+    section.backdrop {
+        grid-row: 2;
+        padding-top: 0;
+        padding-top: 52px;
+        background-color: inherit;
+    }
+    nav.backdrop {
+        grid-row: 1;
+        padding-bottom: 52px;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        background-color: inherit;
+        z-index: -1;
+    }
+    ul.backdrop {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column-reverse;
+        background-color: inherit;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+    }
+    li.backdrop:nth-of-type(1) {
+        transform: translateZ(0.2px) scale(1.2);
+    }
+    li.backdrop:nth-of-type(2) {
+        transform: translateZ(0.25px) scale(1.15);
+    }
+    li.backdrop:nth-of-type(3) {
+        transform: translateZ(0.3px) scale(1.1);
+    }
+}
