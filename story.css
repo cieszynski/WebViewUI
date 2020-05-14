@@ -1,0 +1,41 @@
+/* story.css */
+/*
+<figure class="story">
+    <picture class="story">
+        <img class="story" src="path/to/image">
+    </picture>
+    <p class="story"><!-- text --></p>
+</figure>
+<p class="story"><!-- text --></p>
+<figure class="story">
+    <p class="story"><!-- text --></p>
+    <picture class="story">
+        <img class="story" src="path/to/image">
+    </picture>
+</figure>
+*/
+figure.story {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+img.story {
+    border: 2px solid green;
+    border-radius: 50%;
+}
+
+picture.story {
+    max-width: 200px;
+    direction: rtl;
+    width: 40%;
+}
+
+p.story {
+    margin: 16px;
+}
+
+p.story~picture.story {
+    direction: ltr;
+}

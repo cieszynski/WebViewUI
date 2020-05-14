@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link href="base.css" type="text/css" rel="stylesheet" />
   <link href="backdrop.css" type="text/css" rel="stylesheet" />
-  <!--   <link href="ui.chips.css" type="text/css" rel="stylesheet" />
-  <link href="ui.settings.css" type="text/css" rel="stylesheet" />
+  <link href="story.css" type="text/css" rel="stylesheet" />
+  <!--   <link href="ui.settings.css" type="text/css" rel="stylesheet" />
   <link href="ui.backdrop.css" type="text/css" rel="stylesheet" /> -->
   <!--   <style type="test">
     @font-face {
@@ -60,13 +60,43 @@
   </style> -->
 
   <style>
+    @font-face {
+      font-family: "Roboto";
+      src: url("font/Roboto-Regular.ttf") format("truetype");
+    }
+
+    :root {
+      --primary-color: #000;
+      --primary-background: #fff;
+      --primary-border: #000;
+      --secondary-color: #000;
+      --secondary-background: #fff;
+      --secondary-border: #000;
+    }
+
     body {
       background-color: #ddd;
+      font-family: "Roboto";
     }
 
     header.backdrop {
       background-color: #999;
     }
+
+
+    article {
+      border: 1px solid blue;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+    }
+
+    div.y-scroll {
+      overflow-x: hidden;
+      overflow-y: scroll;
+      height: 100%;
+    }
+
   </style>
 </head>
 
@@ -97,7 +127,32 @@
     </section>
     <!-- last is visible on start -->
     <section id="a" class="backdrop">
-      <div>a Beschreibung</div>
+      <article>
+        <header>
+          header
+        </header>
+        <div class="y-scroll">
+          <figure class="story">
+            <picture class="story">
+              <img class="story" src="moon.jpg">
+            </picture>
+            <p class="story">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur deleniti non animi
+              illo. Consectetur culpa dignissimos est. Animi minus laudantium veritatis voluptatibus quibusdam ratione,
+              quia dolorem velit itaque dolor dolorum.</p>
+          </figure>
+          <p class="story">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam mollitia id a obcaecati, velit
+            ipsam harum, cumque eos culpa labore beatae quasi veritatis? Ut, temporibus earum quo voluptatem
+            necessitatibus provident!</p>
+          <figure class="story">
+            <p class="story">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui maiores, exercitationem
+              tenetur voluptatum ipsum adipisci doloribus illo quaerat dolorum, culpa id aspernatur. Beatae incidunt
+              laudantium distinctio molestiae similique explicabo quos.</p>
+            <picture class="story">
+              <img class="story" src="moon.jpg">
+            </picture>
+          </figure>
+        </div>
+      </article>
     </section>
     <nav class="backdrop">
       <ul class="backdrop">
@@ -112,6 +167,7 @@
         <li class="backdrop">
           <a href="#a">Beschreibung</a>
         </li>
+        <li class="backdrop">Titel</li>
       </ul>
     </nav>
   </main>
